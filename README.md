@@ -14,14 +14,14 @@ Wikipedia page: [here](https://en.wikipedia.org/wiki/Bloom_filter)
 
 Install the library using vpm:
 ```
-v install sheatnoisette.bloomfilter
+v install --git https://github.com/SheatNoisette/bloomfilter.git
 ```
 
 Usage quickstart:
 ```v
 import crypto.sha256
 
-import sheatnoisette.bloomfilter
+import bloomfilter
 
 // Create a new bloom filter
 mut filter := bloomfilter.new()
