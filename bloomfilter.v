@@ -3,6 +3,13 @@ module bloomfilter
 import bitfield
 import crypto.sha256
 
+/*
+** Licensed under the MIT License
+** (c) 2021 SheatNoisette
+**
+** See LICENSE for more details
+*/
+
 const (
 	// Number of bits of the bloom filter by default
 	sh_bloom_default_size = 256
