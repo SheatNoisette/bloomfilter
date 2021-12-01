@@ -111,6 +111,9 @@ pub fn (mut fl BloomFilter) resize(new_size int) bool {
 	// Set new size
 	fl.data.resize(new_size)
 
+        // Update the size
+        fl.size = new_size
+
 	return true
 }
 
