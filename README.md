@@ -2,7 +2,7 @@
 
 Bloom filter implementation made in V.
 
-![tests](https://github.com/SheatNoisette/bloomfilter/actions/workflows/tests/badge.svg)
+![tests](https://github.com/SheatNoisette/bloomfilter/actions/workflows/makefile.yml/badge.svg)
 
 Useful for a quick lookup on a lot of data where accuracy isn't important
 (See maps for that) without using much memory.
