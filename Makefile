@@ -7,5 +7,7 @@ all: tests fmt
 tests:
 	$(VC) -stats test .
 
+test: tests
+
 fmt:
 	$(VC) fmt . -w
