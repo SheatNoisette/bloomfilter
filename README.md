@@ -7,14 +7,22 @@ Bloom filter implementation made in V.
 Useful for a quick lookup on a lot of data where accuracy isn't important
 (See maps for that) without using much memory.
 
-If the hash matches, it **MIGHT** be inserted before. If it doesn't, the data
-was **NEVER** seen before (Minus errors due to hash collisions).
+If the hash matches, it **MIGHT** be inserted before (Because of hash collisions). If it doesn't, the data
+was **NEVER** seen before.
 
-Wikipedia page: [here](https://en.wikipedia.org/wiki/Bloom_filter)
+More info about bloom filters [here](https://en.wikipedia.org/wiki/Bloom_filter)
+
+Important note:
+---
+
+**The version of this module will remain in 0.x.x unless the language API's are finalized or
+implemented.**
+
+**This module will be archived if a native bloom filter is implemented in vlib.**
 
 # Quickstart
 
-Install the library using vpm:
+Install the library from git:
 ```
 v install --git https://github.com/SheatNoisette/bloomfilter.git
 ```
