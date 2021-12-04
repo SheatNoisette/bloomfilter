@@ -1,0 +1,24 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install V, git and GCC
+      run: |
+        sudo apt install -y git gcc libgc-dev
+        git clone --depth 1 https://github.com/vlang/v.git ~/v
+        (cd ~/v;make -j 4;sudo ./v symlink)
+
+    - name: Run tests
+      run: make test
