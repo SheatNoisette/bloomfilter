@@ -34,8 +34,8 @@ pub:
 // Create a new bloom filter
 pub fn new() BloomFilter {
 	return BloomFilter{
-		data: bitfield.new(bloomfilter.sh_bloom_default_size)
-		size: bloomfilter.sh_bloom_default_size
+		data: bitfield.new(sh_bloom_default_size)
+		size: sh_bloom_default_size
 		hash_fnc: [sha256.hexhash]
 	}
 }
