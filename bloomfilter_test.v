@@ -26,3 +26,27 @@ fn test_is_empty() {
 
 	assert filter.is_empty() == false
 }
+
+fn test_clear() {
+	mut filter := new()
+
+	assert filter.check('Ok') == false
+	filter.add('Ok')
+	assert filter.check('Ok') == true
+	filter.clear()
+	assert filter.check('Ok') == false
+}
+
+fn reset_hash_function() {
+	mut filter := new()
+	assert filter.check('Ok') == false
+	filter.add('Ok')
+	filter.reset_hash_functions()
+	assert filter.check('Ok') == false
+	filter.add('12')
+	// Not recommended - High probability of colisions if multiple types are
+	// used
+	assert filter.check('12') == true
+	assert filter.check('123') == false
+	assert filter.check(12) == false
+}

@@ -49,12 +49,15 @@ pub fn new_ext(bargs BloomExtArgs) BloomFilter {
 	}
 }
 
-// Is the Bloomtable empty ? (No data at all)
+// Is the Bloomtable empty ?
+// This means that the filter data has only zeroes in it, if the hash function(s)
+// Returns zeroes on a particular element, this function become useless
 pub fn (mut fl BloomFilter) is_empty() bool {
 	return bitfield.new(fl.size()) == fl.data
 }
 
 // Add a hash functions (string => string)
+// Order is important
 pub fn (mut fl BloomFilter) add_hash_functions(hashfncs ...fn (string) string) {
 	for fnc in hashfncs {
 		fl.hash_fnc << fnc
@@ -62,6 +65,7 @@ pub fn (mut fl BloomFilter) add_hash_functions(hashfncs ...fn (string) string) {
 }
 
 // Clears the hash functions registered inside the filter
+//
 // THIS CLEARS THE FILTER DATA
 pub fn (mut fl BloomFilter) reset_hash_functions() {
 	fl.hash_fnc = []
