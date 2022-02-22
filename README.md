@@ -62,5 +62,5 @@ mut filter_2 := bloomfilter.new_ext(size: 512, hash_functions: [sha256.hexhash])
 ```
 
 # License
-This library is licenced under the MIT license, see ```LICENSE``` for more
+This library is licensed under the MIT license, see ```LICENSE``` for more
 details.
