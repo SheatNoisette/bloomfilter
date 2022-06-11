@@ -131,9 +131,13 @@ fn string_to_binstring(input string) string {
 		// Current carracter
 		c := bytes_arr[bytes_arr.len - i - 1]
 
+		/*
 		for pos in 0 .. 8 {
 			output_str = (int((c >> pos) & 0x1).str()) + output_str
 		}
+		*/
+		// Functionnaly equivalent to the above
+		output_str = '${c:08b}' + output_str
 	}
 
 	return output_str
