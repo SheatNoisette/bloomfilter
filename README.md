@@ -33,6 +33,9 @@ import crypto.sha256
 
 import bloomfilter
 
+// ------------------------------------
+// Sample usage
+
 // Create a new bloom filter
 mut filter := bloomfilter.new()
 
@@ -47,9 +50,10 @@ if filter.check('Apple') {
     println('Apple might be in the filter')
 }
 
-// Clear the filter
+// Clear the filter - Remove every elements
 filter.clear()
 
+// ------------------------------------
 // Change hash algorithms
 
 // Remove algorithms
