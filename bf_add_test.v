@@ -47,6 +47,7 @@ fn test_add_same() {
 
 fn test_add_empty_string() {
 	mut filter := new()
+	assert filter.check('') == false
 	filter.add('')
 	assert filter.check('')
 }
