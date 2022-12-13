@@ -79,8 +79,8 @@ pub fn (fl &BloomFilter) size() int {
 }
 
 // Insert an element into the bloomfilter
-pub fn (mut fl BloomFilter) add<T>(_value T) {
-	str_value := any_to_str<T>(_value)
+pub fn (mut fl BloomFilter) add[T](_value T) {
+	str_value := any_to_str[T](_value)
 	hash := fl.get_hash_bitfield(str_value)
 	fl.data = bitfield.bf_or(hash, fl.data)
 }
@@ -88,8 +88,8 @@ pub fn (mut fl BloomFilter) add<T>(_value T) {
 // Check if a element is PROBABLY in the filter
 // True: MIGHT be in the filter
 // False: Is NOT in the filter
-pub fn (mut fl BloomFilter) check<T>(_value T) bool {
-	str_value := any_to_str<T>(_value)
+pub fn (mut fl BloomFilter) check[T](_value T) bool {
+	str_value := any_to_str[T](_value)
 	hash := fl.get_hash_bitfield(str_value)
 
 	return bitfield.bf_and(hash, fl.data) == hash
@@ -185,6 +185,6 @@ fn (mut fl BloomFilter) get_hash_bitfield(value string) bitfield.BitField {
 }
 
 // Convert any value to string
-fn any_to_str<T>(_value T) string {
-	return '$_value.str()'
+fn any_to_str[T](_value T) string {
+	return '${_value.str()}'
 }

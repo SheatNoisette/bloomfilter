@@ -70,11 +70,11 @@ fn test_loop() {
 	mut filter := new()
 
 	for i in 0 .. 10 {
-		filter.add('$i')
+		filter.add('${i}')
 	}
 
 	for i in 0 .. 10 {
-		assert filter.check('$i')
+		assert filter.check('${i}')
 	}
 }
 
@@ -83,7 +83,7 @@ fn test_loop_multiple_types() {
 
 	for i in 0 .. 10 {
 		if i & 1 == 0 {
-			filter.add('$i')
+			filter.add('${i}')
 		} else {
 			filter.add(i)
 		}
@@ -91,7 +91,7 @@ fn test_loop_multiple_types() {
 
 	for i in 0 .. 10 {
 		if i & 1 == 0 {
-			assert filter.check('$i')
+			assert filter.check('${i}')
 		} else {
 			assert filter.check(i)
 		}
