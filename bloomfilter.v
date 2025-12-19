@@ -10,10 +10,8 @@ import crypto.sha256
 ** See LICENSE for more details
 */
 
-const (
-	// Number of bits of the bloom filter by default
-	sh_bloom_default_size = 256
-)
+// Number of bits of the bloom filter by default
+const sh_bloom_default_size = 256
 
 struct BloomFilter {
 pub mut:
@@ -34,8 +32,8 @@ pub:
 // Create a new bloom filter
 pub fn new() BloomFilter {
 	return BloomFilter{
-		data: bitfield.new(sh_bloom_default_size)
-		size: sh_bloom_default_size
+		data:     bitfield.new(sh_bloom_default_size)
+		size:     sh_bloom_default_size
 		hash_fnc: [sha256.hexhash]
 	}
 }
@@ -43,8 +41,8 @@ pub fn new() BloomFilter {
 // Advanced bloom filter creation
 pub fn new_ext(bargs BloomExtArgs) BloomFilter {
 	return BloomFilter{
-		data: bitfield.new(bargs.size)
-		size: bargs.size
+		data:     bitfield.new(bargs.size)
+		size:     bargs.size
 		hash_fnc: bargs.hash_functions
 	}
 }
@@ -73,7 +71,7 @@ pub fn (mut fl BloomFilter) reset_hash_functions() {
 }
 
 // Get the size of the internal array
-[inline]
+@[inline]
 pub fn (fl &BloomFilter) size() int {
 	return fl.size
 }

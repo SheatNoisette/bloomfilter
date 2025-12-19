@@ -29,7 +29,7 @@ v install --git https://github.com/SheatNoisette/bloomfilter.git
 
 Usage quickstart:
 ```v
-import crypto.sha256
+import crypto.md5
 
 import bloomfilter
 
@@ -59,10 +59,10 @@ filter.clear()
 // Remove algorithms
 filter.reset_hash_functions()
 // Add new hash functions (Order is important)
-filter.add_hash_functions(sha256.hexhash, sha256.hexhash)
+filter.add_hash_functions(md5.hexhash, md5.hexhash)
 
 // Manual initialization
-mut filter_2 := bloomfilter.new_ext(size: 512, hash_functions: [sha256.hexhash])
+mut filter_2 := bloomfilter.new_ext(size: 512, hash_functions: [md5.hexhash])
 ```
 
 # License

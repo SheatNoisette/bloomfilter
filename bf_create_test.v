@@ -1,7 +1,10 @@
 module bloomfilter
 
-import crypto.sha256
-import crypto.sha512
+import crypto.md5
+
+fn simple_hash(s string) string {
+	return md5.hexhash(s)
+}
 
 fn test_create_bloom() {
 	filter := new()
@@ -9,14 +12,14 @@ fn test_create_bloom() {
 }
 
 fn test_create_ext() {
-	mut filter := new_ext(size: 512, hash_functions: [sha512.hexhash])
+	mut filter := new_ext(size: 512, hash_functions: [simple_hash])
 	filter.add('ok')
 	assert filter.check('ok')
 	assert filter.size() == 512
 }
 
 fn test_init_ext_mismatch_size() {
-	mut filter := new_ext(size: 512, hash_functions: [sha256.hexhash])
+	mut filter := new_ext(size: 512, hash_functions: [simple_hash])
 	filter.add('ok')
 	assert filter.check('ok') == true
 }
